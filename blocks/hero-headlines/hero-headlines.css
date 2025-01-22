@@ -1,0 +1,119 @@
+/* hero-headlines.css */
+/* Container styles */
+.hero-headlines-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-headlines-wrapper {
+  width: 100%;
+  max-width: var(--section-max-width, 1200px);
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
+    text-transform: uppercase;
+    color: #158000
+}
+
+/* Block styles */
+.hero-headlines.block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+/* Text container styles */
+.hero-headlines.block > div {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.hero-headlines.block > div > div {
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+.hero-headlines.block p,
+.hero-headlines.block h1 {
+  margin: 0.5rem auto;
+  max-width: 42rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Heading styles */
+.hero-headlines.block h1 {
+  margin: 0.5rem 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+/* Paragraph styles */
+.hero-headlines.block p {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+/* Mobile layout */
+@media (max-width: 899px) {
+  .hero-headlines.block {
+    padding: 1rem 0;
+  }
+  
+  .hero-headlines.block picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hero-headlines.block img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 900px) {
+  .hero-headlines.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-headlines.block picture {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    max-width: 800px;
+  }
+
+  .hero-headlines.block img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+  }
+
+  /* Desktop h1 size */
+  h1#geschäftswachstum-heute-dank-digitalem-marketing-von-morgen {
+    font-size: 3.7rem;  /* Retaining current desktop size */
+  }
+}
+/* Mobile h1 size */
+h1#geschäftswachstum-heute-dank-digitalem-marketing-von-morgen {
+    font-size: 2.3rem;
+}

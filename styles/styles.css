@@ -12,7 +12,8 @@
 
 :root {
   /* colors */
-  --background-color: white;
+  --background-color: #f9fafb;
+  --uptext-color: #158000;
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
@@ -20,8 +21,8 @@
   --link-hover-color: #1d3ecf;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: Outfit, sans-serif;
+  --heading-font-family: Outfit, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -29,15 +30,20 @@
   --body-font-size-xs: 17px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
+  --heading-font-size-xxl: 2.2rem;
+  --heading-font-size-xl: 1.5rem;
   --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
+  --heading-font-size-m: 1.25rem;
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
   /* nav height */
   --nav-height: 64px;
+
+  /* Layout variables */
+  --section-max-width: 1200px;
+  --section-padding: 20px;
+  --content-padding: 16px;
 }
 
 /* fallback fonts */
@@ -52,7 +58,7 @@
   size-adjust: 99.529%;
   src: local('Arial');
 }
-
+/* desktop >= 900px */
 @media (width >= 900px) {
   :root {
     /* body sizes */
@@ -61,10 +67,10 @@
     --body-font-size-xs: 14px;
 
     /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
+    --heading-font-size-xxl: 2.2rem;
+    --heading-font-size-xl: 1.5rem;
     --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
+    --heading-font-size-m: 1.25rem;
     --heading-font-size-s: 20px;
     --heading-font-size-xs: 18px;
   }
@@ -141,7 +147,11 @@ pre {
   overflow-x: auto;
   white-space: pre;
 }
-
+main { 
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 main > div {
   margin: 40px 16px;
 }
@@ -173,7 +183,7 @@ button {
   max-width: 100%;
   margin: 12px 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
+  border-radius: .75rem;
   padding: 0.5em 1.2em;
   font-family: var(--body-font-family);
   font-style: normal;
@@ -233,9 +243,10 @@ main > .section {
 }
 
 main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-padding);
+  box-sizing: border-box;
 }
 
 main > .section:first-of-type {
