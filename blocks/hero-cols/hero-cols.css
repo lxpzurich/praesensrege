@@ -37,10 +37,11 @@ a.button.columns-button-2.columns-button {
     background: linear-gradient(to bottom, #db2777, #f43f5e);
     background-color: #111827;
     font-family: 'Inter', sans-serif;
-    line-height: 1.6rem;
+    line-height: 1.8rem;
     font-size: 1.2rem;
     font-weight: 600;
-    padding: 1.25rem 3rem;  
+    padding: 1.25rem 3rem;
+    margin-bottom: 3rem;
     display: block;         
     margin: 0 auto;
     transition: transform 0.2s ease, box-shadow 0.2s ease;  /* Smooth transition for hover effects */
