@@ -184,7 +184,7 @@ a.button.hero-cols-button-2 {
 }
 
 /* Responsive adjustments */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .hero-cols-img-col picture {
     max-width: 100%; /* Full width on mobile */
   }
