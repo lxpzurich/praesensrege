@@ -81,17 +81,18 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 }
 
 /* Mobile layout */
-@media (max-width: 899px) {
+@media (min-width: 900px) {
   .hero-headlines.block {
-    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .hero-headlines.block picture {
     display: flex;
     justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    width: 60%;
+    max-width: 800px;
   }
 
   .hero-headlines.block img {
