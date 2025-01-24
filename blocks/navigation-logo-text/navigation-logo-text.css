@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .navigation-logo-text {
     flex-grow: 0;
     justify-content: flex-start;
@@ -28,7 +28,7 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .navigation-logo-text p {
     justify-content: flex-start;
     width: auto;
@@ -50,7 +50,7 @@
   text-overflow: ellipsis;
 }
 
-@media (max-width: 360px) {
+@media (width <= 360px) {
   .navigation-logo-text a {
     font-size: 0.875rem;
   }
@@ -80,7 +80,7 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .navigation-logo-text-wrapper {
     justify-content: space-between;
   }
@@ -95,7 +95,7 @@
   justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .navigation-logo-text-container {
     justify-content: flex-start;
   }

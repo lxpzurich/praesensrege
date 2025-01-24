@@ -112,7 +112,7 @@ a.button.hero-cols-button-2.hero-cols-button:hover {
   font-size: 1.1rem; /* Mobile font size */
 }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .hero-cols-wrapper li {
     font-size: 1.1rem;
   }
@@ -121,6 +121,7 @@ a.button.hero-cols-button-2.hero-cols-button:hover {
 .hero-cols-button-wrapper.hero-cols-button-1-wrapper {
   margin-top: 5rem;
 }
+
 .hero-cols-wrapper li::before {
   content: '';
   width: 1rem;

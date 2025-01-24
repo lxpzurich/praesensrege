@@ -81,7 +81,7 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 }
 
 /* Mobile layout */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .hero-headlines.block {
     display: flex;
     flex-direction: column;
@@ -103,7 +103,7 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 }
 
 /* Desktop layout */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .hero-headlines.block {
     display: flex;
     flex-direction: column;
@@ -125,7 +125,7 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 }
 
 /* Desktop styles */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .hero-headlines.block {
     font-size: 1.8rem; /* Desktop font size */
   }
