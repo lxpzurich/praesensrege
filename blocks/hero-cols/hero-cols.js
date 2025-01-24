@@ -22,12 +22,12 @@ export default function decorate(block) {
         // Add indexed class to each button
         button.classList.add(`columns-button-${index + 1}`);
         button.classList.add('columns-button');
-        
+
         // Replace <br/> text with actual line breaks
         if (button.textContent.includes('<br/>')) {
           button.innerHTML = button.textContent.replace(/<br\/>/g, '<br>');
         }
-        
+
         // Add SVG to button-2
         if (index === 1) { // Second button (0-based index)
           const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="button-icon">
@@ -35,7 +35,7 @@ export default function decorate(block) {
           </svg>`;
           button.innerHTML = `${button.innerHTML} ${svg}`;
         }
-        
+
         // Handle button container
         const buttonContainer = button.closest('.button-container');
         if (buttonContainer) {
