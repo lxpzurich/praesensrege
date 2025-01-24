@@ -16,7 +16,7 @@ export default function decorate(block) {
 
   // Get all grid items
   const gridItems = block.querySelectorAll('.services-grid > div');
-  
+
   // Set initial animation states
   gridItems.forEach((item, index) => {
     item.style.opacity = '0';
@@ -31,7 +31,7 @@ export default function decorate(block) {
         // Animate in
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
-        
+
         // Stop observing after animation
         observer.unobserve(entry.target);
       }
@@ -55,7 +55,6 @@ export default function decorate(block) {
     const iconContainer = item.querySelector('div[data-align="center"]');
     if (iconContainer) {
       iconContainer.classList.add('services-grid-icon-container');
-    }
 
     // Handle content container
     const contentContainer = item.querySelector('div:not([data-align="center"])');
