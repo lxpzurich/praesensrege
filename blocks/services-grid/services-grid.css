@@ -23,7 +23,6 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .services-grid {
@@ -59,7 +58,9 @@
   overflow: hidden;
   height: 100%;
   background-color: transparent;
-  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%),
+              0 2px 4px -2px rgb(0 0 0 / 10%);
 }
 
 /* Card Gradient Overlay */
@@ -69,11 +70,12 @@
   inset: 0;
   background: linear-gradient(
       to bottom,
-      rgb(31 41 55 / 90%),
-      rgb(40 27 55 / 90%)
+      rgb(31 41 55 / 95%),
+      rgb(40 27 55 / 98%)
   );
   border-radius: 1rem;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid rgb(255 255 255 / 3%);
 }
 
 /* Icon Container */
@@ -101,15 +103,19 @@
 
 /* Hover Effects */
 .services-grid > div:hover {
-  transform: scale(1.02);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 25%),
+              0 8px 10px -6px rgb(0 0 0 / 15%),
+              0 0 15px rgb(135 221 0 / 15%);
 }
 
 .services-grid > div:hover::before {
   background: linear-gradient(
       to bottom,
-      rgb(63 98 18 / 90%),
-      rgb(32 49 9 / 90%)
+      rgb(63 98 18 / 98%),
+      rgb(32 49 9 / 98%)
   );
+  border-color: rgb(135 221 0 / 10%);
 }
 
 .services-grid > div:hover > div[data-align="center"]::before {
@@ -187,7 +193,6 @@
   font-size: 1.2rem;  
   color: #9ca3af;
   line-height: 1.5;
-  padding: 0 1rem;
 }
 
 /* Button Styling - Dark Theme */

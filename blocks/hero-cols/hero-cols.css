@@ -1,19 +1,19 @@
 /*** Copied parts from https://github.com/adobe/aem-boilerplate/blob/main/blocks/columns/columns.css ***/
 
-a.button.columns-button-1.columns-button,
-a.button.columns-button-2.columns-button {
+a.button.hero-cols-button-1.hero-cols-button,
+a.button.hero-cols-button-2.hero-cols-button {
     width: 95%;  /* Wider on mobile */
 }
 
 /* Desktop button styles */
 @media (width >= 900px) {
-    a.button.columns-button-1.columns-button,
-    a.button.columns-button-2.columns-button {
+    a.button.hero-cols-button-1.hero-cols-button,
+    a.button.hero-cols-button-2.hero-cols-button {
         width: 80%;  /* Original width on desktop */
     }
 }
 
-a.button.columns-button-1.columns-button {
+a.button.hero-cols-button-1.hero-cols-button {
     background: linear-gradient(135deg, #111827, #1f2937);  /* Angled gradient with slightly lighter second color */
     background-color: #111827;
     font-family: Inter, sans-serif;
@@ -27,13 +27,13 @@ a.button.columns-button-1.columns-button {
 }
 
 /* Hover effect */
-a.button.columns-button-1.columns-button:hover {
+a.button.hero-cols-button-1.hero-cols-button:hover {
     transform: translateY(-2px);  /* Slight lift effect */
     box-shadow: 0 4px 12px rgb(17 24 39 / 15%);  /* Subtle shadow */
     background: linear-gradient(135deg, #111827, #2d3748);  /* Slightly more contrast on hover */
 }
 
-a.button.columns-button-2.columns-button {
+a.button.hero-cols-button-2.hero-cols-button {
     background: linear-gradient(to bottom, #db2777, #f43f5e);
     background-color: #111827;
     font-family: Inter, sans-serif;
@@ -47,7 +47,7 @@ a.button.columns-button-2.columns-button {
 }
 
 /* Hover effect */
-a.button.columns-button-2.columns-button:hover {
+a.button.hero-cols-button-2.hero-cols-button:hover {
     transform: translateY(-2px);  /* Slight lift effect */
     box-shadow: 0 4px 12px rgb(219 39 119 / 20%);  /* Subtle shadow with pink tint */
     background: linear-gradient(to bottom, #e11d48, #f43f5e);  /* Slightly more vibrant on hover */
@@ -137,9 +137,9 @@ a.button.columns-button-2.columns-button:hover {
 }
 
 /* SVG icon styling */
-.button-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+.hero-cols-button-icon {
+    width: 1.2em;
+    height: 1.2em;
     margin-left: 0.5rem;
     vertical-align: middle;
     display: inline-block;
@@ -147,14 +147,16 @@ a.button.columns-button-2.columns-button:hover {
 }
 
 /* Hover effect for the icon */
-a.button.columns-button-2:hover .button-icon {
+a.button.hero-cols-button-2:hover .hero-cols-button-icon {
     transform: scale(1.1);
 }
 
 /* Ensure button content is vertically aligned */
-a.button.columns-button-2 {
-    display: flex;
+a.button.hero-cols-button-2 {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    white-space: normal;
+    line-height: 1.4;
 }
