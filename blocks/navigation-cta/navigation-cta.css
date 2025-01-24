@@ -3,10 +3,10 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .navigation-cta {
     display: block;
-    color: #ffffff;
+    color: #fff;
     margin-left: auto; /* Push to the right */
   }
   
@@ -35,7 +35,7 @@
   color: white;
   background-color: black;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%);
   transition: all 0.2s;
 }
 
@@ -44,7 +44,7 @@
 }
 
 /* Mobile menu styles */
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .navigation-cta {
     padding: 0.5rem 1rem;
   }
