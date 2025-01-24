@@ -192,7 +192,7 @@ export default async function decorate(block) {
   }, { passive: true });
 
   // Set active state for current page
-  const pathname = window.location.pathname;
+  const { pathname } = window.location;
   const links = nav.querySelectorAll('a');
   links.forEach((link) => {
     if (link.getAttribute('href') === pathname) {
