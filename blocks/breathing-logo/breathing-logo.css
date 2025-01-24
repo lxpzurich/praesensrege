@@ -1,0 +1,47 @@
+/* Breathing Logo Animation */
+@keyframes breathing {
+    0%, 100% {
+      transform: scale(1) translateZ(0);
+      filter: drop-shadow(0 0 15px rgba(101, 163, 13, 0.2))
+              drop-shadow(0 0 30px rgba(101, 163, 13, 0.1));
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.05) translateZ(0);
+      filter: drop-shadow(0 0 20px rgba(101, 163, 13, 0.4))
+              drop-shadow(0 0 40px rgba(101, 163, 13, 0.3))
+              drop-shadow(0 0 60px rgba(101, 163, 13, 0.2));
+      opacity: 1;
+    }
+  }
+
+/* Section Container */
+.section.breathing-logo-container.services-grid-container {
+    background: linear-gradient(to bottom, #000000, #060f0b);
+    padding: 4rem 0;
+    position: relative;
+    margin-top: 6rem;
+  }
+  
+  /* Logo Container */
+  .breathing-logo-wrapper {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .breathing-logo img {
+    width: 100px;
+    height: 100px;
+    will-change: transform, filter, opacity;
+    animation: breathing 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+  
+  /* Ensuring the container doesn't affect layout during animation */
+  .breathing-logo {
+    isolation: isolate;
+    contain: layout style;
+  }
+ 
