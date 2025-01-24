@@ -81,7 +81,7 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 }
 
 /* Mobile layout */
-@media (width <= 899px) {
+@media (max-width: 899px) {
   .hero-headlines.block {
     padding: 1rem 0;
   }
@@ -102,7 +102,7 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 }
 
 /* Desktop layout */
-@media (width >= 900px) {
+@media (min-width: 900px) {
   .hero-headlines.block {
     display: flex;
     flex-direction: column;
