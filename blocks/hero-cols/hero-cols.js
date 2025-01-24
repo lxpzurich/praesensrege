@@ -20,21 +20,21 @@ export default function decorate(block) {
         const picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
           picWrapper.classList.add('hero-cols-img-col');
-          
+
           // Get original image
           const img = pic.querySelector('img');
-          
+
           // LCP Optimization
           if (img) {
             // Add loading eager for LCP
             img.setAttribute('loading', 'eager');
-            
+
             // Add fetchpriority high
             img.setAttribute('fetchpriority', 'high');
-            
+
             // Add proper sizes attribute
             img.setAttribute('sizes', '(min-width: 768px) 50vw, 100vw');
-            
+
             // Create optimized picture with multiple widths
             const newPic = createOptimizedPicture(
               img.src,
@@ -45,7 +45,7 @@ export default function decorate(block) {
                 { width: '500', media: '(min-width: 768px)' },
               ],
             );
-            
+
             // Replace original picture
             pic.replaceWith(newPic);
           }
