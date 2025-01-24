@@ -1,0 +1,35 @@
+/* CTA Button */
+.navigation-cta {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navigation-cta {
+    display: block;
+  }
+}
+
+.navigation-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  transition: all 0.2s;
+}
+
+.navigation-cta a:hover {
+  background-color: rgb(31 41 55);
+}
+
+/* Mobile menu styles */
+@media (max-width: 767px) {
+  .navigation-cta {
+    padding: 0.5rem 1rem;
+  }
+}

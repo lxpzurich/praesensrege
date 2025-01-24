@@ -25,9 +25,9 @@
 .hero-headlines.block p,
 .hero-headlines.block h1 {
   margin: 0.5rem auto;
-  max-width: 42rem;
-  width: 100%;
   text-align: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
@@ -48,25 +48,31 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 /* Text container styles */
 .hero-headlines.block > div {
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-headlines.block > div > div {
   width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
 /* Heading styles */
 .hero-headlines.block h1 {
-  margin: 0.5rem 0;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  margin: 0.5rem auto;
+  max-width: 42rem;
   width: 100%;
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3.7rem); /* Responsive scaling */
+  line-height: 1.2;
+  white-space: normal; /* Allow line breaks at spaces */
+  word-break: keep-all; /* Prevent word breaking */
+  overflow-wrap: normal; /* Don't break words */
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* Mobile layout */
@@ -110,14 +116,4 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
     height: auto;
     border-radius: 1rem;
   }
-
-  /* Desktop h1 size */
-  h1#geschaeftswachstum-heute-dank-digitalem-marketing-von-morgen {
-    font-size: 3.7rem;  /* Retaining current desktop size */
-  }
-}
-
-/* Mobile h1 size */
-h1#geschaeftswachstum-heute-dank-digitalem-marketing-von-morgen {
-    font-size: 2.3rem;
 }

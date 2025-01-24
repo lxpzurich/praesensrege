@@ -1,0 +1,107 @@
+/* Logo section */
+.navigation-logo-text {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: fit-content;
+  width: 100%; /* Ensure full width for centering */
+}
+
+@media (min-width: 768px) {
+  .navigation-logo-text {
+    flex-grow: 0;
+    justify-content: flex-start;
+    width: auto; /* Reset width on desktop */
+  }
+}
+
+/* Fix paragraph margins and alignment */
+.navigation-logo-text p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center on mobile */
+  gap: 0.5rem;
+  width: 100%; /* Full width for centering */
+}
+
+@media (min-width: 768px) {
+  .navigation-logo-text p {
+    justify-content: flex-start;
+    width: auto; /* Reset width on desktop */
+  }
+}
+
+/* Logo and text link */
+.navigation-logo-text a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: clamp(1rem, 5vw, 1.25rem); /* Responsive scaling between 16px and 20px */
+  font-weight: 700;
+  color: rgb(17 24 39);
+  font-family: var(--font-logo, system-ui);
+  line-height: 1;
+  white-space: nowrap; /* Prevent text from breaking mid-word */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Show ellipsis if text is too long */
+}
+
+@media (max-width: 360px) {
+  .navigation-logo-text a {
+    font-size: 0.875rem; /* 14px fallback for very small screens */
+  }
+}
+
+/* Image container */
+.navigation-logo-text picture {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image */
+.navigation-logo-text img {
+  width: 1.5rem;  /* 24px */
+  height: 1.5rem; /* 24px */
+  object-fit: contain;
+  display: block;
+}
+
+/* Content wrapper styles */
+.navigation-logo-text-wrapper {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: center; /* Center on mobile */
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .navigation-logo-text-wrapper {
+    justify-content: space-between;
+  }
+}
+
+/* Space management */
+.navigation-logo-text-container {
+  margin-left: auto;
+  gap: 2rem;
+  width: 100%; /* Full width for centering */
+  display: flex;
+  justify-content: center; /* Center on mobile */
+}
+
+@media (min-width: 768px) {
+  .navigation-logo-text-container {
+    justify-content: flex-start;
+  }
+}
+
+header nav .nav-brand img {
+    width: 2rem;
+    height: auto;
+}
