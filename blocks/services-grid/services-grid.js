@@ -4,7 +4,7 @@
     animationDelay: 100, // Delay between each card animation (ms)
     observerThreshold: 0.2, // Percentage of element visible before triggering
     animationDistance: '30px', // Initial offset distance
-    };
+  };
 
   function initServicesGrid() {
     const gridItems = document.querySelectorAll('.services-grid > div');
@@ -43,4 +43,4 @@
   } else {
     initServicesGrid();
   }
-  })();
+})();
