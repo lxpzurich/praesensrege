@@ -1,4 +1,4 @@
-import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
+import { createOptimizedPicture } from '../../scripts/aem.js';
 
 /* Parts taken from https://github.com/adobe/aem-boilerplate/blob/main/blocks/columns/columns.js */
 export default function decorate(block) {
@@ -42,8 +42,8 @@ export default function decorate(block) {
               false,
               [
                 { width: '750', media: '(max-width: 767px)' },
-                { width: '500', media: '(min-width: 768px)' }
-              ]
+                { width: '500', media: '(min-width: 768px)' },
+              ],
             );
             
             // Replace original picture
