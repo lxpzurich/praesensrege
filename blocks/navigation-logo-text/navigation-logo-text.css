@@ -43,7 +43,7 @@
   font-size: clamp(1rem, 5vw, 1.25rem); /* Responsive scaling between 16px and 20px */
   font-weight: 700;
   color: rgb(17 24 39);
-  font-family: var(--font-logo, system-ui);
+  font-family: bebas neue;
   line-height: 1;
   white-space: nowrap; /* Prevent text from breaking mid-word */
   overflow: hidden;

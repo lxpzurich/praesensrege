@@ -6,6 +6,22 @@
 @media (min-width: 768px) {
   .navigation-cta {
     display: block;
+    color: #ffffff;
+    margin-left: auto; /* Push to the right */
+  }
+  
+  /* Container adjustments if needed */
+  .navigation-cta-wrapper {
+    display: flex;
+    justify-content: flex-end; /* Ensure right alignment */
+    width: 100%;
+  }
+  
+  /* If part of a flex container, ensure it stays right */
+  .navigation-cta-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
   }
 }
 

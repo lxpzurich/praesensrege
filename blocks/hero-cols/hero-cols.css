@@ -109,8 +109,18 @@ a.button.hero-cols-button-2.hero-cols-button:hover {
   position: relative;
   padding-left: 2rem;
   margin-bottom: 1rem;
+  font-size: 1.1rem; /* Mobile font size */
 }
 
+@media (min-width: 900px) {
+  .hero-cols-wrapper li {
+    font-size: 1.1rem; /* Desktop font size */
+  }
+}
+
+.hero-cols-button-wrapper.hero-cols-button-1-wrapper {
+  margin-top: 5rem;
+}
 .hero-cols-wrapper li::before {
   content: '';
   width: 1rem;
@@ -167,7 +177,7 @@ a.button.hero-cols-button-2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+      padding: 0rem 2rem;
 }
 
 .hero-cols-img-col picture {
