@@ -108,6 +108,7 @@ a.button.hero-cols-button-2.hero-cols-button:hover {
   list-style: none;
   position: relative;
   padding-left: 2rem;
+  margin-bottom: 1rem;
 }
 
 .hero-cols-wrapper li::before {
@@ -159,4 +160,32 @@ a.button.hero-cols-button-2 {
     gap: 0.5rem;
     white-space: normal;
     line-height: 1.4;
+}
+
+/* Image column styling */
+.hero-cols-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero-cols-img-col picture {
+  display: block;
+  width: 100%;
+  max-width: 450px; /* maximum width on desktop */
+  margin: 0 auto;
+}
+
+.hero-cols-img-col img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .hero-cols-img-col picture {
+    max-width: 100%; /* Full width on mobile */
+  }
 }

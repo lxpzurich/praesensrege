@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, getMetadata } from '../../scripts/aem.js';
 
 /* Parts taken from https://github.com/adobe/aem-boilerplate/blob/main/blocks/columns/columns.js */
 export default function decorate(block) {
@@ -20,9 +20,35 @@ export default function decorate(block) {
         const picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
           picWrapper.classList.add('hero-cols-img-col');
-          // Use AEM's picture optimization
-          const newPic = createOptimizedPicture(pic.querySelector('img').src, pic.querySelector('img').alt, false, [{ width: '750' }]);
-          pic.replaceWith(newPic);
+          
+          // Get original image
+          const img = pic.querySelector('img');
+          
+          // LCP Optimization
+          if (img) {
+            // Add loading eager for LCP
+            img.setAttribute('loading', 'eager');
+            
+            // Add fetchpriority high
+            img.setAttribute('fetchpriority', 'high');
+            
+            // Add proper sizes attribute
+            img.setAttribute('sizes', '(min-width: 768px) 50vw, 100vw');
+            
+            // Create optimized picture with multiple widths
+            const newPic = createOptimizedPicture(
+              img.src,
+              img.alt,
+              false,
+              [
+                { width: '750', media: '(max-width: 767px)' },
+                { width: '500', media: '(min-width: 768px)' }
+              ]
+            );
+            
+            // Replace original picture
+            pic.replaceWith(newPic);
+          }
         }
       }
 
