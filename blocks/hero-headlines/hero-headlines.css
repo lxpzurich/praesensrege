@@ -14,6 +14,16 @@
   box-sizing: border-box;
   text-align: center;
 }
+
+/* Text styles */
+.hero-headlines.block p,
+.hero-headlines.block h1 {
+  margin: 0.5rem auto;
+  max-width: 42rem;
+  width: 100%;
+  text-align: center;
+}
+
 div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
     text-transform: uppercase;
     color: #158000
@@ -44,13 +54,6 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
   overflow-wrap: break-word;
   text-align: center;
 }
-.hero-headlines.block p,
-.hero-headlines.block h1 {
-  margin: 0.5rem auto;
-  max-width: 42rem;
-  width: 100%;
-  text-align: center;
-}
 
 /* Heading styles */
 .hero-headlines.block h1 {
@@ -67,7 +70,7 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 }
 
 /* Mobile layout */
-@media (max-width: 899px) {
+@media (width <= 899px) {
   .hero-headlines.block {
     padding: 1rem 0;
   }
@@ -88,7 +91,7 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
 }
 
 /* Desktop layout */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .hero-headlines.block {
     display: flex;
     flex-direction: column;
@@ -109,11 +112,12 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
   }
 
   /* Desktop h1 size */
-  h1#geschäftswachstum-heute-dank-digitalem-marketing-von-morgen {
+  h1#geschaeftswachstum-heute-dank-digitalem-marketing-von-morgen {
     font-size: 3.7rem;  /* Retaining current desktop size */
   }
 }
+
 /* Mobile h1 size */
-h1#geschäftswachstum-heute-dank-digitalem-marketing-von-morgen {
+h1#geschaeftswachstum-heute-dank-digitalem-marketing-von-morgen {
     font-size: 2.3rem;
 }

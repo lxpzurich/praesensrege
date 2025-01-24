@@ -21,8 +21,8 @@
   --link-hover-color: #1d3ecf;
 
   /* fonts */
-  --body-font-family: Outfit, sans-serif;
-  --heading-font-family: Outfit, sans-serif;
+  --body-font-family: outfit, sans-serif;
+  --heading-font-family: outfit, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -58,6 +58,7 @@
   size-adjust: 99.529%;
   src: local('Arial');
 }
+
 /* desktop >= 900px */
 @media (width >= 900px) {
   :root {
@@ -147,11 +148,13 @@ pre {
   overflow-x: auto;
   white-space: pre;
 }
+
 main { 
   width: auto;
   max-width: 100%;
   box-sizing: border-box;
 }
+
 main > div {
   margin: 40px 16px;
 }

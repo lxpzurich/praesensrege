@@ -1,237 +1,240 @@
 /* Section Title */   
-  .default-content-wrapper {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .default-content-wrapper h2 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 2.5rem;
-    color: #f9f9f9;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-  }
-  #dienstleistungen {
-    color: #ffffff;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  /* Services Grid Layout */
-  .services-grid-wrapper {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
+.default-content-wrapper {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.default-content-wrapper h2 {
+  font-family: Outfit, sans-serif;
+  font-size: 2.5rem;
+  color: #f9f9f9;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+#dienstleistungen {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Services Grid Layout */
+.services-grid-wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.services-grid {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media (width >= 768px) {
   .services-grid {
-    display: grid;
-    gap: 2.5rem;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  @media (min-width: 768px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+}
+
+@media (width >= 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  @media (min-width: 1024px) {
-    .services-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .services-grid-wrapper {
-      padding: 0 2rem;
-    }
+
+  .services-grid-wrapper {
+    padding: 0 2rem;
   }
-  
-  /* Grid Cards - Dark Theme */
-  .services-grid > div {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-radius: 1rem;
-    overflow: hidden;
-    height: 100%;
-    background-color: transparent;
-    transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  
-  /* Card Gradient Overlay */
-  .services-grid > div::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(31, 41, 55, 0.9),
-        rgb(40 27 55 / 90%)
-    );
-    border-radius: 1rem;
-    transition: background 0.3s ease;
-  }
-  
-  /* Icon Container */
-  .services-grid > div > div[data-align="center"] {
-    width: 100%;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-  
-  /* Dark Rectangle Background */
-  .services-grid > div > div[data-align="center"]::before {
-    content: '';
-    position: absolute;
-    width: 5rem;
-    height: 5rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 0.75rem;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Icon Picture Container */
-  .services-grid > div > div[data-align="center"] picture {
-    position: relative;
-    z-index: 1;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Icon Image */
-  .services-grid > div > div[data-align="center"] img {
-    width: 3rem !important;
-    height: 3rem !important;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-  }
-  
-  /* Card Content */
-  .services-grid > div > div:not([data-align="center"]) {
-    position: relative;
-    z-index: 1;
-    padding: 0 2rem 2rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  
-  /* Reset AEM Picture Styles */
-  .services-grid picture {
-    display: inline-flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Typography - Dark Theme */
-  .services-grid h3 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.5rem;
-    color: #ffffff;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: -0.025em;
-  }
-  
-  .services-grid h3 strong {
-    font-weight: inherit;
-  }
-  
-  .services-grid p {
-    font-family: 'Outfit', sans-serif;
-    color: #d1d5db;
-    line-height: 1.625;
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    padding: 1rem;
-  }
-  
-  /* Target the second paragraph in card content */
-  .services-grid > div > div:not([data-align="center"]) p:nth-of-type(2) {
-    font-size: 1.2rem;  
-    color: #9ca3af;
-    line-height: 1.5;
-    padding: 0 1rem;
-  }
-  
-  /* Button Styling - Dark Theme */
-  .services-grid .button-container {
-    margin-top: auto;
-    padding: 1.5rem 2rem 0;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .services-grid > div a.button,
-  .services-grid > div a.button:any-link {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 0.875rem 1.5rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #87DD00;
-    border: 1px solid rgb(135, 221, 0);
-    border-radius: 0.5rem;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
-    font-size: 1.125rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    margin: 0; /* Override default button margins */
-  }
-  
-  /* Increased specificity for hover state */
-  .services-grid > div a.button:hover,
-  .services-grid > div a.button:any-link:hover {
-    background-color: #87DD00;
-    color: #000000;
-    box-shadow: 0 10px 15px -3px rgba(135, 221, 0, 0.3);
-    text-decoration: none; /* Prevent underline on hover */
-  }
-  
-  /* Hover Effects */
-  .services-grid > div:hover {
-    transform: scale(1.02);
-  }
-  
-  .services-grid > div:hover::before {
-    background: linear-gradient(
-        to bottom,
-        rgba(63, 98, 18, 0.9),
-        rgba(32, 49, 9, 0.9)
-    );
-  }
-  
-  .services-grid > div:hover > div[data-align="center"]::before {
-    transform: scale(1.1) rotate(3deg);
-  }
-  
-  .services-grid > div:hover picture img {
-    transform: scale(1.05);
-  }
-  
-  /* Links within content */
-  .services-grid p a {
-    color: #87DD00;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-  
-  .services-grid p a:hover {
-    color: #a3ff00;
-    text-decoration: underline;
-  }
+}
+
+/* Grid Cards - Dark Theme */
+.services-grid > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 100%;
+  background-color: transparent;
+  transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Card Gradient Overlay */
+.services-grid > div::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to bottom,
+      rgb(31 41 55 / 90%),
+      rgb(40 27 55 / 90%)
+  );
+  border-radius: 1rem;
+  transition: background 0.3s ease;
+}
+
+/* Icon Container */
+.services-grid > div > div[data-align="center"] {
+  width: 100%;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Dark Rectangle Background */
+.services-grid > div > div[data-align="center"]::before {
+  content: '';
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  background-color: rgb(0 0 0 / 30%);
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+/* Reset AEM Picture Styles */
+.services-grid picture {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+}
+
+/* Icon Picture Container */
+.services-grid > div > div[data-align="center"] picture {
+  position: relative;
+  z-index: 1;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Icon Image */
+.services-grid > div > div[data-align="center"] img {
+  width: 3rem !important;
+  height: 3rem !important;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* Card Content */
+.services-grid > div > div:not([data-align="center"]) {
+  position: relative;
+  z-index: 1;
+  padding: 0 2rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Typography - Dark Theme */
+.services-grid h3 {
+  font-family: Outfit, sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.services-grid h3 strong {
+  font-weight: inherit;
+}
+
+.services-grid p {
+  font-family: Outfit, sans-serif;
+  color: #d1d5db;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  padding: 1rem;
+}
+
+/* Target the second paragraph in card content */
+.services-grid > div > div:not([data-align="center"]) p:nth-of-type(2) {
+  font-size: 1.2rem;  
+  color: #9ca3af;
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+
+/* Button Styling - Dark Theme */
+.services-grid .button-container {
+  margin-top: auto;
+  padding: 1.5rem 2rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.services-grid > div a.button,
+.services-grid > div a.button:any-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background-color: rgb(0 0 0 / 30%);
+  color: #87DD00;
+  border: 1px solid rgb(135, 221, 0);
+  border-radius: 0.5rem;
+  font-family: Outfit, sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+/* Hover Effects */
+.services-grid > div:hover {
+  transform: scale(1.02);
+}
+
+.services-grid > div:hover::before {
+  background: linear-gradient(
+      to bottom,
+      rgb(63 98 18 / 90%),
+      rgb(32 49 9 / 90%)
+  );
+}
+
+.services-grid > div:hover > div[data-align="center"]::before {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.services-grid > div:hover picture img {
+  transform: scale(1.05);
+}
+
+/* Increased specificity for hover state */
+.services-grid > div a.button:hover,
+.services-grid > div a.button:any-link:hover {
+  background-color: #87DD00;
+  color: #000;
+  box-shadow: 0 10px 15px -3px rgb(135 221 0 / 30%);
+  text-decoration: none;
+}
+
+/* Links within content */
+.services-grid p a {
+  color: #87DD00;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.services-grid p a:hover {
+  color: #a3ff00;
+  text-decoration: underline;
+}
