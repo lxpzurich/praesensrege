@@ -2,22 +2,22 @@
 @keyframes breathing {
     0%, 100% {
       transform: translateZ(0);
-      filter: drop-shadow(0 0 20px rgba(101, 163, 13, 0.25))
-              drop-shadow(0 0 40px rgba(101, 163, 13, 0.15));
+      filter: drop-shadow(0 0 20px rgb(101 163 13 / 25%))
+              drop-shadow(0 0 40px rgb(101 163 13 / 15%));
       opacity: 0.9;
     }
     50% {
       transform: translateZ(0);
-      filter: drop-shadow(0 0 30px rgba(101, 163, 13, 0.5))
-              drop-shadow(0 0 50px rgba(101, 163, 13, 0.4))
-              drop-shadow(0 0 70px rgba(101, 163, 13, 0.3));
+      filter: drop-shadow(0 0 30px rgb(101 163 13 / 50%))
+              drop-shadow(0 0 50px rgb(101 163 13 / 40%))
+              drop-shadow(0 0 70px rgb(101 163 13 / 30%));
       opacity: 1;
     }
   }
 
 /* Section Container */
 .section.breathing-logo-container.services-grid-container {
-    background: linear-gradient(to bottom, #000000, #060f0b);
+    background: linear-gradient(to bottom, #000, #060f0b);
     padding: 4rem 0;
     position: relative;
     margin-top: 6rem;
