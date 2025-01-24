@@ -55,6 +55,7 @@ export default function decorate(block) {
     const iconContainer = item.querySelector('div[data-align="center"]');
     if (iconContainer) {
       iconContainer.classList.add('services-grid-icon-container');
+    }
 
     // Handle content container
     const contentContainer = item.querySelector('div:not([data-align="center"])');
