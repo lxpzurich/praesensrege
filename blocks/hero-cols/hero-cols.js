@@ -4,17 +4,16 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 export default function decorate(block) {
   // Add block-specific class
   block.classList.add('hero-cols-wrapper');
-  
+
   const cols = [...block.firstElementChild.children];
   block.classList.add(`hero-cols-${cols.length}-cols`);
 
-  // setup image columns and buttons
   [...block.children].forEach((row) => {
     row.classList.add('hero-cols-row');
-    
+
     [...row.children].forEach((col) => {
       col.classList.add('hero-cols-col');
-      
+
       // Handle pictures using AEM's optimized picture helper
       const pic = col.querySelector('picture');
       if (pic) {
@@ -32,7 +31,7 @@ export default function decorate(block) {
       buttons.forEach((button, index) => {
         const buttonWrapper = document.createElement('div');
         buttonWrapper.className = `hero-cols-button-wrapper hero-cols-button-${index + 1}-wrapper`;
-        
+
         button.classList.add('hero-cols-button', `hero-cols-button-${index + 1}`);
 
         // Replace <br/> text with actual line breaks
