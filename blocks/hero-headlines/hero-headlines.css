@@ -16,6 +16,11 @@
 }
 
 /* Text styles */
+.hero-headlines.block p {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
 .hero-headlines.block p,
 .hero-headlines.block h1 {
   margin: 0.5rem auto;
@@ -60,12 +65,6 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
   margin: 0.5rem 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  width: 100%;
-}
-
-/* Paragraph styles */
-.hero-headlines.block p {
-  margin: 0.5rem 0;
   width: 100%;
 }
 
