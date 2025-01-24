@@ -109,7 +109,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 
 const updateNav = (nav) => {
   const currentScrollY = window.scrollY;
-  
+
   if (currentScrollY > SCROLL_THRESHOLD) {
     const scrollProgress = Math.min((currentScrollY - SCROLL_THRESHOLD) / 50, 1);
     nav.style.setProperty('--scroll-progress', `${1 - scrollProgress}`);
@@ -118,7 +118,7 @@ const updateNav = (nav) => {
     nav.style.setProperty('--scroll-progress', '1');
     nav.style.setProperty('--translate-y', '0');
   }
-  
+
   ticking = false;
 };
 
@@ -194,7 +194,7 @@ export default async function decorate(block) {
   // Set active state for current page
   const pathname = window.location.pathname;
   const links = nav.querySelectorAll('a');
-  links.forEach(link => {
+  links.forEach((link) => {
     if (link.getAttribute('href') === pathname) {
       link.classList.add('active');
     }
