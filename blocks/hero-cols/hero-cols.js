@@ -16,13 +16,11 @@ export default function decorate(block) {
           }
         }
 
-        // Handle buttons (new functionality)
+        // Handle buttons
         const buttons = col.querySelectorAll('a.button');
         buttons.forEach((button, index) => {
           // Add indexed class to each button
           button.classList.add(`columns-button-${index + 1}`);
-          
-          // Add a general button class
           button.classList.add('columns-button');
           
           // Replace <br/> text with actual line breaks
@@ -38,7 +36,7 @@ export default function decorate(block) {
             button.innerHTML = `${button.innerHTML} ${svg}`;
           }
           
-          // If button is in a container, mark the container
+          // Handle button container
           const buttonContainer = button.closest('.button-container');
           if (buttonContainer) {
             buttonContainer.classList.add('columns-button-container');
