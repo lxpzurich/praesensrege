@@ -1,21 +1,18 @@
+/* Logo section container */
+.navigation-logo-text-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 /* Logo section */
 .navigation-logo-text {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  flex-grow: 1;
-  justify-content: center;
+  justify-content: center; /* Center for mobile */
   gap: 0.5rem;
   min-width: fit-content;
-  width: 100%;
-}
-
-@media (width >= 768px) {
-  .navigation-logo-text {
-    flex-grow: 0;
-    justify-content: flex-start;
-    width: auto;
-  }
 }
 
 /* Fix paragraph margins and alignment */
@@ -23,16 +20,8 @@
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Center for mobile */
   gap: 0.5rem;
-  width: 100%;
-}
-
-@media (width >= 768px) {
-  .navigation-logo-text p {
-    justify-content: flex-start;
-    width: auto;
-  }
 }
 
 /* Logo and text link */
@@ -50,12 +39,6 @@
   text-overflow: ellipsis;
 }
 
-@media (width <= 360px) {
-  .navigation-logo-text a {
-    font-size: 0.875rem;
-  }
-}
-
 /* Image container */
 .navigation-logo-text picture {
   display: flex;
@@ -64,8 +47,8 @@
 
 /* Logo image */
 .navigation-logo-text img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: auto;
   object-fit: contain;
   display: block;
 }
@@ -75,24 +58,44 @@
   display: flex;
   height: 4rem;
   align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0;
-  width: 100%;
+  justify-content: center; /* Center for mobile */
+  padding: 0.5rem 1.5rem;
 }
 
-@media (width >= 768px) {
+/* Desktop styles */
+@media (min-width: 900px) {
+  .navigation-logo-text-container {
+    justify-content: flex-start;
+    width: auto;
+    margin-right: auto; /* Push other elements to the right */
+  }
+
+  .navigation-logo-text {
+    justify-content: flex-start; /* Left align for desktop */
+  }
+
+  .navigation-logo-text p {
+    justify-content: flex-start; /* Left align for desktop */
+  }
+
   .navigation-logo-text-wrapper {
-    justify-content: space-between;
+    justify-content: flex-start; /* Left align for desktop */
+    padding-left: 0; /* Remove left padding on desktop */
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 360px) {
+  .navigation-logo-text a {
+    font-size: 0.875rem;
   }
 }
 
 /* Space management */
 .navigation-logo-text-container {
-  margin-left: auto;
-  gap: 2rem;
-  width: 100%;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 @media (width >= 768px) {

@@ -173,10 +173,24 @@ export default async function decorate(block) {
     </button>`;
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
+  
+  // Set initial state
   nav.setAttribute('aria-expanded', 'false');
+  
   // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+  if (isDesktop.matches) {
+    nav.setAttribute('aria-expanded', 'false');
+    navSections.style.display = 'flex';
+  }
+  
+  isDesktop.addEventListener('change', () => {
+    if (isDesktop.matches) {
+      nav.setAttribute('aria-expanded', 'false');
+      navSections.style.display = 'flex';
+    } else {
+      navSections.style.display = 'none';
+    }
+  });
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
