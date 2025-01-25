@@ -12,10 +12,12 @@ a.button.hero-cols-button-2.hero-cols-button {
         width: 90%;  /* Original width on desktop */
     }
 }
+
 p.button-container.hero-cols-button-container {
   margin: 1rem;
   display: block;
 }
+
 a.button.hero-cols-button-1.hero-cols-button {
     background: linear-gradient(135deg, #111827, #1f2937);  /* Angled gradient with slightly lighter second color */
     background-color: #111827;
