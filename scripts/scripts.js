@@ -78,11 +78,18 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), waitForFirstImage);
+    
+    // Find and load hero section first
+    const heroSection = main.querySelector('.hero-cols-wrapper')?.closest('.section');
+    if (heroSection) {
+      await loadSection(heroSection, waitForFirstImage);
+    } else {
+      // Fallback to first section if no hero
+      await loadSection(main.querySelector('.section'), waitForFirstImage);
+    }
   }
 
   try {
-    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
