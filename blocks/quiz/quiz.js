@@ -3,6 +3,16 @@
  * @param {Element} block The quiz block element
  */
 export default function decorate(block) {
+  // Function to show/hide continue button based on selection
+  function showContinueButton() {
+    const continueButton = block.querySelector('.quiz-continue-button');
+    if (block.querySelector('.quiz-option-button.selected')) {
+      continueButton.style.display = 'block';
+    } else {
+      continueButton.style.display = 'none';
+    }
+  }
+
   // Find divider heading and replace with styled divider
   const dividerHeading = block.querySelector('h2#divider');
   if (dividerHeading && dividerHeading.textContent.toLowerCase() === 'divider') {
@@ -18,7 +28,7 @@ export default function decorate(block) {
     gridContainer.className = 'quiz-options-grid';
     
     // Convert paragraphs to buttons
-    options.forEach(option => {
+    options.forEach((option) => {
       const button = document.createElement('button');
       button.className = 'quiz-option-button';
       button.textContent = option.textContent;
@@ -44,7 +54,7 @@ export default function decorate(block) {
       // Remove grid and continue button
       gridContainer.remove();
       continueButton.remove();
-      
+
       // Create and show message
       const message = document.createElement('h2');
       message.textContent = 'Not yet implemented 🙈';
@@ -53,14 +63,5 @@ export default function decorate(block) {
       parent.appendChild(message);
     });
     parent.appendChild(continueButton);
-  }
-
-  function showContinueButton() {
-    const continueButton = block.querySelector('.quiz-continue-button');
-    if (block.querySelector('.quiz-option-button.selected')) {
-      continueButton.style.display = 'block';
-    } else {
-      continueButton.style.display = 'none';
-    }
   }
 }
