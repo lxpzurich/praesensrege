@@ -173,16 +173,16 @@ export default async function decorate(block) {
     </button>`;
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
-  
+
   // Set initial state
   nav.setAttribute('aria-expanded', 'false');
-  
+
   // prevent mobile nav behavior on window resize
   if (isDesktop.matches) {
     nav.setAttribute('aria-expanded', 'false');
     navSections.style.display = 'flex';
   }
-  
+
   isDesktop.addEventListener('change', () => {
     if (isDesktop.matches) {
       nav.setAttribute('aria-expanded', 'false');
