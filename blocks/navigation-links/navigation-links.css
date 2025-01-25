@@ -19,11 +19,11 @@ header nav[aria-expanded='true'] .navigation-links ul {
   gap: 1rem;
   list-style: none;
   padding: 0;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
 }
 
 /* Desktop styles */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .navigation-links {
     display: flex;
     align-items: center;

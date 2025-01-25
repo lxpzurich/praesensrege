@@ -63,7 +63,7 @@
 }
 
 /* Desktop styles */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .navigation-logo-text-container {
     justify-content: flex-start;
     width: auto;
@@ -85,22 +85,9 @@
 }
 
 /* Small mobile screens */
-@media (max-width: 360px) {
+@media (width <= 360px) {
   .navigation-logo-text a {
     font-size: 0.875rem;
-  }
-}
-
-/* Space management */
-.navigation-logo-text-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-@media (width >= 768px) {
-  .navigation-logo-text-container {
-    justify-content: flex-start;
   }
 }
 

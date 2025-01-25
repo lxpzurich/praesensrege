@@ -33,7 +33,7 @@ header .nav-wrapper {
   }
   
   /* Desktop layout */
-  @media (min-width: 900px) {
+  @media (width >= 900px) {
     header nav {
       display: flex;
       justify-content: space-between;
@@ -62,7 +62,7 @@ header .nav-wrapper {
   }
   
   /* Mobile only */
-  @media (max-width: 899px) {
+  @media (width < 900px) {
     header nav[aria-expanded='true'] {
       grid-template:
         'spacer brand hamburger' var(--nav-height)
@@ -262,7 +262,7 @@ header .nav-wrapper {
     align-items: center;
   }
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     .navigation-links-container.navigation-cta-container {
       display: flex;
       align-items: center;
