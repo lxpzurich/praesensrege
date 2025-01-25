@@ -78,7 +78,7 @@ async function loadEager(doc) {
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
-    
+
     // Find and load hero section first
     const heroSection = main.querySelector('.hero-cols-wrapper')?.closest('.section');
     if (heroSection) {
