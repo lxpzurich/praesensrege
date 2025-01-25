@@ -26,7 +26,7 @@ export default function decorate(block) {
   if (options.length) {
     const gridContainer = document.createElement('div');
     gridContainer.className = 'quiz-options-grid';
-    
+
     // Convert paragraphs to buttons
     options.forEach((option) => {
       const button = document.createElement('button');
@@ -42,7 +42,7 @@ export default function decorate(block) {
     // Replace original options with grid
     const firstOption = options[0].closest('div[data-align="center"]').parentElement;
     const parent = firstOption.parentElement;
-    options.forEach(option => option.closest('div[data-align="center"]').parentElement.remove());
+    options.forEach((option) => option.closest('div[data-align="center"]').parentElement.remove());
     parent.appendChild(gridContainer);
 
     // Create continue button (hidden by default)
