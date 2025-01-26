@@ -48,19 +48,38 @@ export default function decorate(block) {
 
   // Handle icons and content
   gridItems.forEach((item) => {
-    // Add card class
     item.classList.add('services-grid-card');
 
     // Handle icon container
     const iconContainer = item.querySelector('div[data-align="center"]');
     if (iconContainer) {
       iconContainer.classList.add('services-grid-icon-container');
+      
+      // Add descriptive alt text to icons
+      const iconImg = iconContainer.querySelector('img');
+      if (iconImg) {
+        // Get the service title from the card
+        const serviceTitle = item.querySelector('h3')?.textContent || '';
+        iconImg.alt = `Icon for ${serviceTitle.trim()}`;
+        
+        // Optimize image size for icons
+        if (iconImg.src.includes('?')) {
+          iconImg.src = `${iconImg.src.split('?')[0]}?width=96&format=webply&optimize=medium`;
+        }
+      }
     }
 
     // Handle content container
     const contentContainer = item.querySelector('div:not([data-align="center"])');
     if (contentContainer) {
       contentContainer.classList.add('services-grid-content');
+      
+      // Add alt text to any content images
+      contentContainer.querySelectorAll('img').forEach(img => {
+        const nearestHeading = img.closest('div').querySelector('h2, h3, h4')?.textContent;
+        const nearestParagraph = img.closest('p')?.textContent;
+        img.alt = nearestHeading || nearestParagraph || 'Service illustration';
+      });
     }
 
     // Handle buttons
