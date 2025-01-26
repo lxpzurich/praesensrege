@@ -90,7 +90,7 @@ header nav[aria-expanded='true'] .nav-sections {
     overflow-y: auto;
 }
 
-/* Desktop layout */
+/** Desktop layout **/
 @media (width >= 900px) {
     header nav {
       display: flex;
