@@ -23,7 +23,7 @@ header nav[aria-expanded='true'] .navigation-links ul {
 }
 
 /* Desktop navigation */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .navigation-links {
     display: block;
   }
