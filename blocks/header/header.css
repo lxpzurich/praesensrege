@@ -119,7 +119,7 @@ header nav[aria-expanded='true'] .nav-sections {
     }
 }
 
-/* Mobile only */
+/* Mobile only **/
 @media (width < 900px) {
     header nav[aria-expanded='true'] {
       grid-template:
