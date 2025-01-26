@@ -1,12 +1,10 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
 // Scroll behavior constants
 const SCROLL_THRESHOLD = 50;
-const SCROLL_TOLERANCE = 50;
 let ticking = false;
 let lastScrollY = 0;
 
@@ -81,6 +79,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
+
   // enable nav dropdown keyboard accessibility
   const navDrops = navSections.querySelectorAll('.nav-drop');
   if (isDesktop.matches) {
@@ -116,9 +115,7 @@ function updateNav(nav) {
   if (currentScrollY < lastScrollY || currentScrollY < SCROLL_THRESHOLD) {
     nav.style.setProperty('--translate-y', '0');
     nav.style.setProperty('--scroll-progress', '1');
-  } 
-  // Hide navbar when scrolling down past threshold
-  else if (currentScrollY > lastScrollY && currentScrollY > SCROLL_THRESHOLD) {
+  } else if (currentScrollY > lastScrollY && currentScrollY > SCROLL_THRESHOLD) {
     nav.style.setProperty('--translate-y', '-100%');
     nav.style.setProperty('--scroll-progress', '0');
   }
@@ -128,14 +125,10 @@ function updateNav(nav) {
 }
 
 /**
- * loads and decorates the header, mainly the nav
+ * loads and decorates the header
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load header as fragment
-  const headerMeta = getMetadata('header');
-  const headerPath = headerMeta ? new URL(headerMeta, window.location).pathname : '/header';
-
   // decorate nav DOM
   const nav = document.createElement('nav');
   nav.id = 'nav';
@@ -185,13 +178,4 @@ export default async function decorate(block) {
   // Set initial state
   navWrapper.style.setProperty('--translate-y', '0');
   navWrapper.style.setProperty('--scroll-progress', '1');
-
-  // Set active state for current page
-  const { pathname } = window.location;
-  const links = nav.querySelectorAll('a');
-  links.forEach((link) => {
-    if (link.getAttribute('href') === pathname) {
-      link.classList.add('active');
-    }
-  });
 }
