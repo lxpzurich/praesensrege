@@ -54,14 +54,14 @@ export default function decorate(block) {
     const iconContainer = item.querySelector('div[data-align="center"]');
     if (iconContainer) {
       iconContainer.classList.add('services-grid-icon-container');
-      
+
       // Add descriptive alt text to icons
       const iconImg = iconContainer.querySelector('img');
       if (iconImg) {
         // Get the service title from the card
         const serviceTitle = item.querySelector('h3')?.textContent || '';
         iconImg.alt = `Icon for ${serviceTitle.trim()}`;
-        
+
         // Optimize image size for icons
         if (iconImg.src.includes('?')) {
           iconImg.src = `${iconImg.src.split('?')[0]}?width=96&format=webply&optimize=medium`;
@@ -73,12 +73,37 @@ export default function decorate(block) {
     const contentContainer = item.querySelector('div:not([data-align="center"])');
     if (contentContainer) {
       contentContainer.classList.add('services-grid-content');
-      
+
       // Add alt text to any content images
-      contentContainer.querySelectorAll('img').forEach(img => {
+      contentContainer.querySelectorAll('img').forEach((img) => {
         const nearestHeading = img.closest('div').querySelector('h2, h3, h4')?.textContent;
         const nearestParagraph = img.closest('p')?.textContent;
         img.alt = nearestHeading || nearestParagraph || 'Service illustration';
+      });
+
+      // Make links accessible
+      contentContainer.querySelectorAll('a').forEach((link) => {
+        // Get surrounding text context
+        const linkText = link.textContent.trim();
+        const parentParagraph = link.closest('p')?.textContent.trim();
+        const nearestHeading = link.closest('div').querySelector('h2, h3, h4')?.textContent.trim();
+        
+        // If link has no text content, create descriptive text
+        if (!linkText) {
+          const contextText = nearestHeading || parentParagraph || 'Learn more about our services';
+          link.setAttribute('aria-label', contextText);
+        }
+        
+        // Add title attribute if missing
+        if (!link.title) {
+          link.title = linkText || link.getAttribute('aria-label');
+        }
+        
+        // Add descriptive aria-label
+        if (linkText) {
+          const fullContext = nearestHeading ? `${linkText} - ${nearestHeading}` : linkText;
+          link.setAttribute('aria-label', fullContext);
+        }
       });
     }
 
@@ -90,6 +115,13 @@ export default function decorate(block) {
         buttonContainer.classList.add('services-grid-button-container');
       }
       button.classList.add('services-grid-button');
+      
+      // Add descriptive text for buttons
+      const buttonText = button.textContent.trim();
+      const serviceTitle = item.querySelector('h3')?.textContent.trim() || '';
+      if (serviceTitle) {
+        button.setAttribute('aria-label', `${buttonText} for ${serviceTitle}`);
+      }
     });
   });
 }
