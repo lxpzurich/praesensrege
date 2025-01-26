@@ -39,7 +39,7 @@ export default function decorate(block) {
 
             // Set sizes attribute for responsive images
             img.setAttribute('sizes', '(min-width: 768px) 500px, 750px');
-            
+
             // Set width and height for the current viewport
             if (window.innerWidth >= 768) {
               img.setAttribute('width', desktopWidth);
