@@ -87,18 +87,18 @@ export default function decorate(block) {
         const linkText = link.textContent.trim();
         const parentParagraph = link.closest('p')?.textContent.trim();
         const nearestHeading = link.closest('div').querySelector('h2, h3, h4')?.textContent.trim();
-        
+
         // If link has no text content, create descriptive text
         if (!linkText) {
           const contextText = nearestHeading || parentParagraph || 'Learn more about our services';
           link.setAttribute('aria-label', contextText);
         }
-        
+
         // Add title attribute if missing
         if (!link.title) {
           link.title = linkText || link.getAttribute('aria-label');
         }
-        
+
         // Add descriptive aria-label
         if (linkText) {
           const fullContext = nearestHeading ? `${linkText} - ${nearestHeading}` : linkText;
@@ -115,7 +115,7 @@ export default function decorate(block) {
         buttonContainer.classList.add('services-grid-button-container');
       }
       button.classList.add('services-grid-button');
-      
+
       // Add descriptive text for buttons
       const buttonText = button.textContent.trim();
       const serviceTitle = item.querySelector('h3')?.textContent.trim() || '';
