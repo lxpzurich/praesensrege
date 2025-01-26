@@ -24,25 +24,39 @@ export default function decorate(block) {
           // Get original image
           const img = pic.querySelector('img');
 
-          // LCP Optimization
           if (img) {
             // Add loading eager for LCP
             img.setAttribute('loading', 'eager');
-
             // Add fetchpriority high
             img.setAttribute('fetchpriority', 'high');
 
-            // Add proper sizes attribute
-            img.setAttribute('sizes', '(min-width: 768px) 50vw, 100vw');
+            // Set explicit width and height attributes
+            const mobileWidth = 750;
+            const desktopWidth = 500;
+            // Assuming a 1:1 aspect ratio, adjust if different
+            const mobileHeight = 750;
+            const desktopHeight = 500;
 
-            // Create optimized picture with multiple widths
+            // Set sizes attribute for responsive images
+            img.setAttribute('sizes', '(min-width: 768px) 500px, 750px');
+            
+            // Set width and height for the current viewport
+            if (window.innerWidth >= 768) {
+              img.setAttribute('width', desktopWidth);
+              img.setAttribute('height', desktopHeight);
+            } else {
+              img.setAttribute('width', mobileWidth);
+              img.setAttribute('height', mobileHeight);
+            }
+
+            // Create optimized picture with explicit dimensions
             const newPic = createOptimizedPicture(
               img.src,
               img.alt,
-              false,
+              true, // eager loading
               [
-                { width: '750', media: '(max-width: 767px)' },
-                { width: '500', media: '(min-width: 768px)' },
+                { width: mobileWidth.toString(), media: '(max-width: 767px)', height: mobileHeight },
+                { width: desktopWidth.toString(), media: '(min-width: 768px)', height: desktopHeight },
               ],
             );
 
