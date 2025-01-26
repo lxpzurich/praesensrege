@@ -25,40 +25,50 @@ export default function decorate(block) {
           const img = pic.querySelector('img');
 
           if (img) {
-            // Add loading eager for LCP
-            img.setAttribute('loading', 'eager');
-            // Add fetchpriority high
-            img.setAttribute('fetchpriority', 'high');
-
-            // Set explicit width and height attributes
+            // Immediately set explicit dimensions on the original image
             const mobileWidth = 750;
-            const desktopWidth = 500;
-            // Assuming a 1:1 aspect ratio, adjust if different
             const mobileHeight = 750;
+            const desktopWidth = 500;
             const desktopHeight = 500;
 
-            // Set sizes attribute for responsive images
-            img.setAttribute('sizes', '(min-width: 768px) 500px, 750px');
-
-            // Set width and height for the current viewport
-            if (window.innerWidth >= 768) {
-              img.setAttribute('width', desktopWidth);
-              img.setAttribute('height', desktopHeight);
-            } else {
-              img.setAttribute('width', mobileWidth);
-              img.setAttribute('height', mobileHeight);
-            }
-
-            // Create optimized picture with explicit dimensions
+            // Set initial dimensions
+            img.setAttribute('width', window.innerWidth >= 768 ? desktopWidth : mobileWidth);
+            img.setAttribute('height', window.innerWidth >= 768 ? desktopHeight : mobileHeight);
+            
+            // Force eager loading for LCP
+            img.setAttribute('loading', 'eager');
+            img.setAttribute('fetchpriority', 'high');
+            
+            // Create new optimized picture
             const newPic = createOptimizedPicture(
               img.src,
               img.alt,
-              true, // eager loading
+              true,
               [
-                { width: mobileWidth.toString(), media: '(max-width: 767px)', height: mobileHeight },
-                { width: desktopWidth.toString(), media: '(min-width: 768px)', height: desktopHeight },
-              ],
+                {
+                  width: mobileWidth.toString(),
+                  height: mobileHeight.toString(),
+                  media: '(max-width: 767px)'
+                },
+                {
+                  width: desktopWidth.toString(),
+                  height: desktopHeight.toString(),
+                  media: '(min-width: 768px)'
+                }
+              ]
             );
+
+            // Ensure dimensions on the new image
+            const newImg = newPic.querySelector('img');
+            if (newImg) {
+              newImg.setAttribute('width', window.innerWidth >= 768 ? desktopWidth : mobileWidth);
+              newImg.setAttribute('height', window.innerWidth >= 768 ? desktopHeight : mobileHeight);
+              newImg.setAttribute('loading', 'eager');
+              newImg.setAttribute('fetchpriority', 'high');
+              
+              // Add sizes attribute
+              newImg.setAttribute('sizes', '(min-width: 768px) 500px, 750px');
+            }
 
             // Replace original picture
             pic.replaceWith(newPic);
