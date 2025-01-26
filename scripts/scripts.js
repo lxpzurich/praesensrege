@@ -90,16 +90,16 @@ async function loadEager(doc) {
       // Add fetchpriority for modern browsers
       preloadLink.setAttribute('fetchpriority', 'high');
       document.head.appendChild(preloadLink);
-      
+
       // Ensure eager loading
       heroImg.loading = 'eager';
       heroImg.fetchPriority = 'high';
-      
+
       // If it's a picture element, optimize sources too
       const picture = heroImg.closest('picture');
       if (picture) {
         const sources = picture.querySelectorAll('source');
-        sources.forEach(source => {
+        sources.forEach((source) => {
           if (source.media === '(min-width: 600px)') {
             const desktopPreload = document.createElement('link');
             desktopPreload.rel = 'preload';
