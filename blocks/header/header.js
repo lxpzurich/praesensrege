@@ -135,23 +135,25 @@ export default async function decorate(block) {
   nav.id = 'nav';
   nav.setAttribute('aria-expanded', 'false');
 
+  // Move existing sections into nav
+  const sections = block.querySelectorAll(':scope > div');
+  sections.forEach((section) => {
+    if (section.children) {
+      const wrapper = document.createElement('div');
+      wrapper.className = section.className;
+      section.className = '';
+      while (section.firstElementChild) wrapper.append(section.firstElementChild);
+      nav.append(wrapper);
+    }
+  });
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
-  nav.append(hamburger);
-
-  // sections
-  const navSections = document.createElement('div');
-  navSections.classList.add('nav-sections');
-
-  // tools
-  const tools = document.createElement('div');
-  tools.classList.add('nav-tools');
-
-  nav.append(navSections, tools);
+  nav.prepend(hamburger);
 
   // hamburger button
   const hamburgerButton = hamburger.querySelector('button');
@@ -159,7 +161,7 @@ export default async function decorate(block) {
     const expanded = nav.getAttribute('aria-expanded') === 'true';
     nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
     if (expanded) {
-      navSections.style.display = 'none';
+      nav.querySelector('.nav-sections').style.display = 'none';
     }
   });
 
