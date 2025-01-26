@@ -38,7 +38,7 @@ header nav[aria-expanded='true'] .navigation-links ul {
 
   /* Add margin to button container */
   .navigation-links .button-container {
-    margin-left: 2rem; /* Added more space before CTA */
+    margin-left: 2rem;
   }
 
   /* Link styling */
@@ -56,12 +56,12 @@ header nav[aria-expanded='true'] .navigation-links ul {
 
   /* Hover effect */
   .navigation-links a:not(.button):hover {
-    color: rgb(132, 204, 22);
+    color: rgb(132 204 22);
   }
 
   /* Active state with underline */
   .navigation-links a:not(.button).active {
-    color: rgb(132, 204, 22);
+    color: rgb(132 204 22);
   }
 
   .navigation-links a:not(.button).active::after {
@@ -71,8 +71,8 @@ header nav[aria-expanded='true'] .navigation-links ul {
     left: 0.5rem;
     right: 0.5rem;
     height: 2px;
-    background-color: rgb(132, 204, 22);
-    transform: scaleX(1.2); /* Makes underline slightly longer than text */
+    background-color: rgb(132 204 22);
+    transform: scaleX(1.2);
   }
 
   /* Button styles */
