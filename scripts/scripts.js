@@ -79,12 +79,44 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
 
-    // Find and load hero section first
+    // Preload LCP hero image
+    const heroImg = main.querySelector('.hero-cols-row > div.hero-cols-col > picture > img');
+    if (heroImg) {
+      // Create preload link
+      const preloadLink = document.createElement('link');
+      preloadLink.rel = 'preload';
+      preloadLink.as = 'image';
+      preloadLink.href = heroImg.src;
+      // Add fetchpriority for modern browsers
+      preloadLink.setAttribute('fetchpriority', 'high');
+      document.head.appendChild(preloadLink);
+      
+      // Ensure eager loading
+      heroImg.loading = 'eager';
+      heroImg.fetchPriority = 'high';
+      
+      // If it's a picture element, optimize sources too
+      const picture = heroImg.closest('picture');
+      if (picture) {
+        const sources = picture.querySelectorAll('source');
+        sources.forEach(source => {
+          if (source.media === '(min-width: 600px)') {
+            const desktopPreload = document.createElement('link');
+            desktopPreload.rel = 'preload';
+            desktopPreload.as = 'image';
+            desktopPreload.href = source.srcset;
+            desktopPreload.media = source.media;
+            document.head.appendChild(desktopPreload);
+          }
+        });
+      }
+    }
+
+    // Load hero section
     const heroSection = main.querySelector('.hero-cols-wrapper')?.closest('.section');
     if (heroSection) {
       await loadSection(heroSection, waitForFirstImage);
     } else {
-      // Fallback to first section if no hero
       await loadSection(main.querySelector('.section'), waitForFirstImage);
     }
   }
