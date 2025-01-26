@@ -34,11 +34,11 @@ export default function decorate(block) {
             // Set initial dimensions
             img.setAttribute('width', window.innerWidth >= 768 ? desktopWidth : mobileWidth);
             img.setAttribute('height', window.innerWidth >= 768 ? desktopHeight : mobileHeight);
-            
+
             // Force eager loading for LCP
             img.setAttribute('loading', 'eager');
             img.setAttribute('fetchpriority', 'high');
-            
+
             // Create new optimized picture
             const newPic = createOptimizedPicture(
               img.src,
@@ -48,14 +48,14 @@ export default function decorate(block) {
                 {
                   width: mobileWidth.toString(),
                   height: mobileHeight.toString(),
-                  media: '(max-width: 767px)'
+                  media: '(max-width: 767px)',
                 },
                 {
                   width: desktopWidth.toString(),
                   height: desktopHeight.toString(),
-                  media: '(min-width: 768px)'
-                }
-              ]
+                  media: '(min-width: 768px)',
+                },
+              ],
             );
 
             // Ensure dimensions on the new image
@@ -65,7 +65,7 @@ export default function decorate(block) {
               newImg.setAttribute('height', window.innerWidth >= 768 ? desktopHeight : mobileHeight);
               newImg.setAttribute('loading', 'eager');
               newImg.setAttribute('fetchpriority', 'high');
-              
+
               // Add sizes attribute
               newImg.setAttribute('sizes', '(min-width: 768px) 500px, 750px');
             }
