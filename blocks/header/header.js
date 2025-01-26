@@ -5,8 +5,10 @@ import { loadFragment } from '../fragment/fragment.js';
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
 // Scroll behavior constants
-const SCROLL_THRESHOLD = window.innerHeight * 0.2;
+const SCROLL_THRESHOLD = 50;
+const SCROLL_TOLERANCE = 50;
 let ticking = false;
+let lastScrollY = 0;
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -107,20 +109,23 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
-const updateNav = (nav) => {
+function updateNav(nav) {
   const currentScrollY = window.scrollY;
-
-  if (currentScrollY > SCROLL_THRESHOLD) {
-    const scrollProgress = Math.min((currentScrollY - SCROLL_THRESHOLD) / 50, 1);
-    nav.style.setProperty('--scroll-progress', `${1 - scrollProgress}`);
-    nav.style.setProperty('--translate-y', `-${scrollProgress * 100}%`);
-  } else {
-    nav.style.setProperty('--scroll-progress', '1');
+  
+  // Show navbar when scrolling up or at top
+  if (currentScrollY < lastScrollY || currentScrollY < SCROLL_THRESHOLD) {
     nav.style.setProperty('--translate-y', '0');
+    nav.style.setProperty('--scroll-progress', '1');
+  } 
+  // Hide navbar when scrolling down past threshold
+  else if (currentScrollY > lastScrollY && currentScrollY > SCROLL_THRESHOLD) {
+    nav.style.setProperty('--translate-y', '-100%');
+    nav.style.setProperty('--scroll-progress', '0');
   }
 
+  lastScrollY = currentScrollY;
   ticking = false;
-};
+}
 
 /**
  * loads and decorates the header, mainly the nav
@@ -197,13 +202,17 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 
-  // Add scroll behavior
+  // Add scroll behavior with debouncing
   window.addEventListener('scroll', () => {
     if (!ticking) {
-      requestAnimationFrame(() => updateNav(nav));
+      requestAnimationFrame(() => updateNav(navWrapper));
       ticking = true;
     }
   }, { passive: true });
+
+  // Set initial state
+  navWrapper.style.setProperty('--translate-y', '0');
+  navWrapper.style.setProperty('--scroll-progress', '1');
 
   // Set active state for current page
   const { pathname } = window.location;

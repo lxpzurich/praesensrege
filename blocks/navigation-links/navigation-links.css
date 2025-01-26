@@ -1,4 +1,4 @@
-/* Navigation links - mobile default */
+/* Navigation links */
 .navigation-links {
   display: none;
 }
@@ -22,36 +22,26 @@ header nav[aria-expanded='true'] .navigation-links ul {
   margin: 0 0 1rem;
 }
 
-/* Desktop styles */
-@media (width >= 900px) {
+/* Desktop navigation */
+@media (min-width: 900px) {
   .navigation-links {
-    display: flex;
-    align-items: center;
-  }
-
-  .navigation-links > div > div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 3rem;
+    display: block;
   }
 
   .navigation-links ul {
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .button-container {
-    margin: 0;
-    display: flex;
-    align-items: center;
+  /* Add margin to button container */
+  .navigation-links .button-container {
+    margin-left: 2rem; /* Added more space before CTA */
   }
 
-  /* Link styles */
+  /* Link styling */
   .navigation-links a:not(.button) {
     display: inline-flex;
     align-items: center;
@@ -60,9 +50,32 @@ header nav[aria-expanded='true'] .navigation-links ul {
     font-weight: 500;
     color: rgb(75 85 99);
     text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
   }
 
-  /* CTA Button styles */
+  /* Hover effect */
+  .navigation-links a:not(.button):hover {
+    color: rgb(132, 204, 22);
+  }
+
+  /* Active state with underline */
+  .navigation-links a:not(.button).active {
+    color: rgb(132, 204, 22);
+  }
+
+  .navigation-links a:not(.button).active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0.5rem;
+    right: 0.5rem;
+    height: 2px;
+    background-color: rgb(132, 204, 22);
+    transform: scaleX(1.2); /* Makes underline slightly longer than text */
+  }
+
+  /* Button styles */
   .navigation-links .button.primary {
     padding: 0.5rem 1.5rem;
     color: white;

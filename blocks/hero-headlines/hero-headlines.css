@@ -65,6 +65,10 @@ div.hero-headlines-wrapper > div > div:nth-child(1) > div > p {
   text-align: center;
 }
 
+.section.hero-headlines-container.hero-cols-container {
+  margin-top: 2rem;
+}
+
 /* Heading styles */
 .hero-headlines.block h1 {
   margin: 0.5rem auto;

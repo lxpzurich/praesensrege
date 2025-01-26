@@ -17,7 +17,7 @@
   --light-color: #f9f9f9;
   --dark-color: #505050;
   --text-color: #131313;
-  --link-color: #3b63fb;
+  --link-color: #000000;
   --link-hover-color: #1d3ecf;
 
   /* fonts */
@@ -25,7 +25,7 @@
   --heading-font-family: outfit, sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
+  --body-font-size-m: 1rem;
   --body-font-size-s: 19px;
   --body-font-size-xs: 17px;
 
@@ -63,7 +63,7 @@
 @media (width >= 900px) {
   :root {
     /* body sizes */
-    --body-font-size-m: 18px;
+    --body-font-size-m: 1rem;
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
 
@@ -228,10 +228,6 @@ main > .section > div {
   margin: 0 auto;
   padding: 0 var(--section-padding);
   box-sizing: border-box;
-}
-
-main > .section:first-of-type {
-  margin-top: 0;
 }
 
 @media (width >= 900px) {
