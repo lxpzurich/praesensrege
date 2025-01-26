@@ -130,22 +130,32 @@ function updateNav(nav) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
+  // load nav as fragment
+  const navMeta = getMetadata('nav');
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  const fragment = await loadFragment(navPath);
+
   // decorate nav DOM
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.setAttribute('aria-expanded', 'false');
 
-  // Move existing sections into nav
-  const sections = block.querySelectorAll(':scope > div');
-  sections.forEach((section) => {
-    if (section.children) {
-      const wrapper = document.createElement('div');
-      wrapper.className = section.className;
-      section.className = '';
-      while (section.firstElementChild) wrapper.append(section.firstElementChild);
-      nav.append(wrapper);
-    }
-  });
+  if (fragment) {
+    // Use the fragment content if available
+    while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
+  } else {
+    // Fallback to using existing sections
+    const sections = block.querySelectorAll(':scope > div');
+    sections.forEach((section) => {
+      if (section.children) {
+        const wrapper = document.createElement('div');
+        wrapper.className = section.className;
+        section.className = '';
+        while (section.firstElementChild) wrapper.append(section.firstElementChild);
+        nav.append(wrapper);
+      }
+    });
+  }
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
