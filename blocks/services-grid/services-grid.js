@@ -107,7 +107,7 @@ export default function decorate(block) {
       });
     }
 
-    // handle buttons
+    // handle buttons.
     const buttons = item.querySelectorAll('a.button');
     buttons.forEach((button) => {
       const buttonContainer = button.closest('.button-container');
