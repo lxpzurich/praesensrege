@@ -75,11 +75,19 @@ header nav {
 header nav .nav-sections {
     grid-area: sections;
     display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background-color: rgb(255 255 255 / 90%);
+    backdrop-filter: blur(12px) saturate(180%);
 }
 
 /* Mobile expanded state */
 header nav[aria-expanded='true'] .nav-sections {
     display: block;
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
 }
 
 /* Desktop layout */

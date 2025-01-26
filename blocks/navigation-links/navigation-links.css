@@ -1,9 +1,25 @@
-/* Navigation links */
+/* Mobile first - hide navigation by default */
+.navigation-links-container {
+  display: none;
+}
+
+/* Show navigation when menu is expanded on mobile */
+header nav[aria-expanded='true'] .navigation-links-container {
+  display: block;
+}
+
 .navigation-links {
   display: none;
 }
 
-/* Mobile menu styles */
+.navigation-links.block > div > div,
+.navigation-cta.block > div > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile menu - shown when expanded */
 header nav[aria-expanded='true'] .navigation-links {
   display: flex;
   flex-direction: column;
@@ -22,8 +38,12 @@ header nav[aria-expanded='true'] .navigation-links ul {
   margin: 0 0 1rem;
 }
 
-/* Desktop navigation */
+/* Desktop styles */
 @media (width >= 900px) {
+  .navigation-links-container {
+    display: block;
+  }
+
   .navigation-links {
     display: block;
   }
