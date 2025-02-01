@@ -1,34 +1,22 @@
-# Your Project's Title...
-Your project's description...
+# 🚀 AEM Edge Delivery Services: Site Migration (Demo)
 
-## Environments
+This repository demonstrates how I migrated my website ([AlexanderPaul.ch](https://alexanderpaul.ch/)) to Adobe Experience Manager Edge Delivery, leveraging Google Docs for document-based content authoring.
+
+## 🔎 See the result (hint: check out page performance)
 - Preview: https://main--praesensrege--lxpzurich.aem.page/
 - Live: https://main--praesensrege--lxpzurich.aem.live/
 
-## Documentation
+## 💬 My opinion
+If you’re used to traditional “major CMS” platforms, the initial setup might take a bit more time. This approach represents a paradigm shift in content authoring. Instead of navigating complex interfaces, you author content by filling Google Docs with content blocks—implemented as tables with a header row that designates the block type and subsequent rows for default content. In other words, once you understand a few core AEM conventions, creating structured pages becomes as natural as writing in a familiar document editor.
 
-Before using the aem-boilerplate, we recommand you to go through the documentation on https://www.aem.live/docs/ and more specifically:
-1. [Developer Tutorial](https://www.aem.live/developer/tutorial)
-2. [The Anatomy of a Project](https://www.aem.live/developer/anatomy-of-a-project)
-3. [Web Performance](https://www.aem.live/developer/keeping-it-100)
-4. [Markup, Sections, Blocks, and Auto Blocking](https://www.aem.live/developer/markup-sections-blocks)
+And on the frontend side of things, the dots connect when you realize that each of those blocks lives in its own child folder, where you keep a dedicated .js and .css file for each block. This organizational method ensures that the styling and behavior of each block are managed separately, making the overall codebase modular and maintainable.
 
-## Installation
+This streamlined process not only simplifies content creation but also significantly increases content velocity for companies. What's remarkable from an SEO standpoint is how these blocks are translated into semantical markup served server-side. When combined with block-level js-decorations, this approach supports the creation of super-high-performance websites in no time, while also providing full control over rendering queue optimizations (see aem-boilerplate).
 
-```sh
-npm i
-```
+By the way, I have also created "my own" - very hacky and basic - delivery pipeline (Google Drive / Docs -> GitHub Pages) using a GitHub Actions Workflow. 
 
-## Linting
+- You can check out the approach here: https://github.com/testorius/discernefuturum
+- And the result: https://testorius.github.io/discernefuturum/
 
-```sh
-npm run lint
-```
-
-## Local development
-
-1. Create a new repository based on the `aem-boilerplate` template and add a mountpoint in the `fstab.yaml`
-1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
-1. Open the `praesensrege` directory in your favorite IDE and start coding :)
+## ▶ How to start?
+If you want to check it out, the best place to start is here: [https://www.aem.live/docs/ and more specifically:](https://www.aem.live/developer/tutorial)
