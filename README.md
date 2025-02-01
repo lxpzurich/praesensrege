@@ -19,4 +19,4 @@ By the way, I have also created "my own" - very hacky and basic - delivery pipel
 - And the result: https://testorius.github.io/discernefuturum/
 
 ## ▶ How to start?
-If you want to check it out, the best place to start is here: [https://www.aem.live/docs/ and more specifically:](https://www.aem.live/developer/tutorial)
+If you want to check it out, the best place to start is here: [https://www.aem.live/](https://www.aem.live/developer/tutorial)
